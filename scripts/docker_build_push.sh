@@ -96,7 +96,7 @@ docker buildx build --target dev \
   -t "${REPO_NAME}:${SHA}-dev" \
   -t "${REPO_NAME}:${REFSPEC}-dev" \
   -t "${DEV_TAG}" \
-  --platform linux/amd64 \
+  --platform ${BUILD_PLATFORM} \
   --label "sha=${SHA}" \
   --label "built_at=$(date)" \
   --label "target=dev" \
@@ -113,7 +113,7 @@ docker buildx build --target lean \
   -t "${REPO_NAME}:${SHA}" \
   -t "${REPO_NAME}:${REFSPEC}" \
   -t "${REPO_NAME}:${LATEST_TAG}" \
-  --platform linux/amd64 \
+  --platform ${BUILD_PLATFORM} \
   --label "sha=${SHA}" \
   --label "built_at=$(date)" \
   --label "target=lean" \
@@ -130,7 +130,7 @@ docker buildx build --target lean \
   -t "${REPO_NAME}:${SHA}-py310" \
   -t "${REPO_NAME}:${REFSPEC}-py310" \
   -t "${REPO_NAME}:${LATEST_TAG}-py310" \
-  --platform linux/amd64 \
+  --platform ${BUILD_PLATFORM} \
   --build-arg PY_VER="3.10-slim-bookworm"\
   --label "sha=${SHA}" \
   --label "built_at=$(date)" \
@@ -148,7 +148,7 @@ docker buildx build --target lean \
   -t "${REPO_NAME}:${SHA}-py39" \
   -t "${REPO_NAME}:${REFSPEC}-py39" \
   -t "${REPO_NAME}:${LATEST_TAG}-py39" \
-  --platform linux/amd64 \
+  --platform ${BUILD_PLATFORM} \
   --build-arg PY_VER="3.9-slim-bullseye"\
   --label "sha=${SHA}" \
   --label "built_at=$(date)" \
