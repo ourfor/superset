@@ -37,6 +37,7 @@ jobs:
         env:
           DOCKERHUB_USER: ${{ secrets.DOCKERHUB_USER }}
           DOCKERHUB_TOKEN: ${{ secrets.DOCKERHUB_TOKEN }}
+          BUILD_PLATFORM: linux/arm64
         run: |
           GITHUB_RELEASE_TAG_NAME="${{ github.event.release.tag_name }}"
           ./scripts/docker_build_push.sh "$GITHUB_RELEASE_TAG_NAME"
